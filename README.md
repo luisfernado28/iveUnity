@@ -1,0 +1,16 @@
+- A playable demo (EXE file for PC). (Done)
+- Features:
+  - Game mechanics: ("Watch out" and "Shoot")
+  - UI (Scoring and Time Remaining)
+  - Scene logs saved in a txt/csv file with timestamp:
+    - NPC appear and dissapear
+    - NPC shot by the player
+    - Score 
+    - Endgame
+- Unity3D project sources (or Git repository link if surpass the Moodle filesize limit).
+- Documentation:
+  - Play instructions. A little description describing the game elements, and how to play the game.
+  - Project structure description:
+    - Game Scenes, assets and Game Objects used and their components
+    - Interaction, game mechanics and the developed scripts that compose them.
+ 
