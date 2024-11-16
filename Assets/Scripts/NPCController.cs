@@ -12,7 +12,7 @@ public class NPCController : MonoBehaviour
     public float timeSpawn = 3f; // NPC spawn period
     private float nextSpawn; // Time to spawn the next NPC
     public float xRangeCoord = 20f; // Range of x coordinate to spawn the NPC
-
+    public bool generateNPCs = true;
     [Range(0, 100)]
     public int enemyRate = 50; // Rate of enemy spawn
     public GameObject PrefabEnemy; // Prefab of the enemy NPC
@@ -27,7 +27,7 @@ public class NPCController : MonoBehaviour
 
     void Update() {
         // Check if it is time to spawn the next NPC. If so, spawn the NPC and set the time to the next one
-        if(Time.time > nextSpawn) {
+        if(Time.time > nextSpawn && generateNPCs) {
             SpawnAndDespawn();
             nextSpawn = Time.time + timeSpawn;
         }
@@ -54,6 +54,11 @@ public class NPCController : MonoBehaviour
         logger.Log("NPC destroyed!");
 
 
+    }
+
+    public void stopGenerating()
+    {
+        this.generateNPCs = false;
     }
 
 }

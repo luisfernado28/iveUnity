@@ -6,12 +6,18 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
+    private Logger logger;
+    public NPCController npcController;
+
     public Text timerText; // Use Unity's default Text component
-    public float totalTimeInSeconds = 300; // 5 minutes in seconds
+    public float totalTimeInSeconds = 300; // 5 minutes in seconds 
     private float currentTime;
 
     void Start()
     {
+        logger = FindObjectOfType<Logger>();
+        npcController= FindObjectOfType<NPCController>();
+
         currentTime = totalTimeInSeconds; // Initialize the timer
     }
 
@@ -41,6 +47,7 @@ public class Timer : MonoBehaviour
     void OnTimerEnd()
     {
         // Code to execute when the timer ends
-        Debug.Log("Timer has ended!");
+        logger.Log("Timer has ended! the game is finished");
+        npcController.stopGenerating();
     }
 }
