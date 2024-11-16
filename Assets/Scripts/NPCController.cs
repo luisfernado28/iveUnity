@@ -6,6 +6,8 @@ using System;
 
 public class NPCController : MonoBehaviour
 {
+    private Logger logger;
+
     public static int POINTS = 0; // Static variable to store the points
     public float timeSpawn = 3f; // NPC spawn period
     private float nextSpawn; // Time to spawn the next NPC
@@ -18,6 +20,7 @@ public class NPCController : MonoBehaviour
 
     void Start()
     {
+        logger = FindObjectOfType<Logger>();
         // Set the time to spawn the next NPC
         nextSpawn = Time.time + timeSpawn;
     }
@@ -38,11 +41,18 @@ public class NPCController : MonoBehaviour
         // Instantiate the NPC and destroy it after 3 seconds. Randomizing if it is an enemy or an ally
         GameObject NPC = null;
         bool isEnemy = UnityEngine.Random.Range(0, 100) <= enemyRate;
-        if (isEnemy) 
+        logger.Log("New NPC created!");
+        if (isEnemy) { 
             NPC = Instantiate(PrefabEnemy, newLocation, Quaternion.identity);
-        else 
+            logger.Log("This NPC is an enemy");
+        }
+        else { 
             NPC = Instantiate(PrefabAlly, newLocation, Quaternion.identity);
+            logger.Log("This NPC is an ally");
+        }
         Destroy(NPC, 3f);
+        logger.Log("NPC destroyed!");
+
 
     }
 
