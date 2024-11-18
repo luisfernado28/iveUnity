@@ -22,7 +22,8 @@ This is a description of the Citizens.
 Project estructure
 Game scenes:
 City details
-
+Grass
+	This is a 3D plane model 
 Enemies
 Citizens
 

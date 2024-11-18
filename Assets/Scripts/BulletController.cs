@@ -19,15 +19,25 @@ public class BulletController : MonoBehaviour
         logger.Log("NPC shot by the player!");
         // Check if the bullet hit an enemy or ally, and update the score accordingly.
         var whois = collision.gameObject.tag;
-        if(whois == "Enemy") { // If the bullet hits an enemy, add 1 to the score.
+        if (whois == "Enemy")
+        { // If the bullet hits an enemy, add 1 to the score.
             Scoring(1);
-        } else if (whois == "Ally") { // If the bullet hits an ally, subtract 1 to the score.
+            Destroy(collision.gameObject);
+        }
+        else if (whois == "Ally")
+        { // If the bullet hits an ally, subtract 1 to the score.
             Scoring(-1);
-        } else { // If the bullet hits anything else, log it.
-            Debug.Log("Unknown object: " + whois);
+            Destroy(collision.gameObject);
+        }
+        else if (whois == "Env")
+        { 
+            logger.Log("Enviorment shoot" + whois);
+        }
+        // If the bullet hits anything else, log it.
+        else
+        {    logger.Log("Unknown object: " + whois);
         }     
         // Destroy the bullet and the object it hit.   
-        Destroy(collision.gameObject);
         Destroy(gameObject);
     }
 
