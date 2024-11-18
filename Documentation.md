@@ -23,7 +23,10 @@ Project estructure
 Game scenes:
 City details
 Grass
-	This is a 3D plane model 
+	This is a 3D plane model with a texture imported form the unity asset repository, 
 Enemies
+	Enemies who appear all of the sudden in the screen D:
 Citizens
+	Citizens who appear all of the sudden in the screen :D
+
 
