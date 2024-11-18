@@ -303,6 +303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeSpawn: 3
   xRangeCoord: 10
+  generateNPCs: 1
   enemyRate: 50
   PrefabEnemy: {fileID: 3680471847471083563, guid: acc569bf1944f0a469fa510f74e0cb52, type: 3}
   PrefabAlly: {fileID: 1524237765467179113, guid: a4ae87e4b525d8f46a8453e74f3bcc70, type: 3}
@@ -425,6 +426,7 @@ GameObject:
   - component: {fileID: 1088197770}
   - component: {fileID: 1088197769}
   - component: {fileID: 1088197768}
+  - component: {fileID: 1088197771}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -482,6 +484,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1088197771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088197767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72dfb6b4ac7aa274eba796087215b602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1640622676
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,7 +787,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: timerText
+  m_Text: 
 --- !u!222 &1770890757
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -794,7 +808,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174b5c86609f33c4eb044112ff481d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 0}
+  npcController: {fileID: 628559590}
+  timerText: {fileID: 1770890756}
   totalTimeInSeconds: 300
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
