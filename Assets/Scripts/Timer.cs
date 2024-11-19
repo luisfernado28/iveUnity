@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     private Logger logger;
+    public GameObject watchout;
     public NPCController npcController;
 
     public Text timerText; // Use Unity's default Text component
@@ -19,6 +20,7 @@ public class Timer : MonoBehaviour
         npcController= FindObjectOfType<NPCController>();
 
         currentTime = totalTimeInSeconds; // Initialize the timer
+        StartCoroutine(WatchoutThing());
     }
 
     void Update()
@@ -34,6 +36,15 @@ public class Timer : MonoBehaviour
             UpdateTimerDisplay();
             OnTimerEnd();
         }
+    }
+
+    IEnumerator WatchoutThing() {
+        logger.Log("Watch Out!");
+        yield return new WaitForSeconds(0.5f);
+        watchout.SetActive(true);
+        yield return new WaitForSeconds(2.0f);
+        watchout.SetActive(false);
+        logger.Log("End Watch Out!");
     }
 
     void UpdateTimerDisplay()
