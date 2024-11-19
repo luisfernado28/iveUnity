@@ -1,0 +1,101 @@
+\setkomafont{title}{\Huge\normalfont\bfseries}
+\setkomafont{subtitle}{\LARGE\normalfont}
+\setkomafont{author}{\Large\normalfont}
+
+\DeclareNewSectionCommand[
+	style=section,
+	afterskip=1pt,
+	beforeskip=5pt,
+	font=\usekomafont{section},
+	indent=0pt,
+	level=1,
+	tocindent=0em,
+	toclevel=1,
+	tocnumwidth=5.5em,
+	tocstyle=section,
+]{annex}
+\renewcommand{\theannex}{\appendixname{} \Alph{annex}}
+
+\RedeclareSectionCommands[beforeskip=5pt,afterskip=1pt]{section,subsection,subsubsection,paragraph,subparagraph}
+\let\oldannex\annex
+\renewcommand{\annex}{\pagebreak \oldannex}
+
+\RequirePackage[perpage]{footmisc}
+
+\RequirePackage[english]{babel}
+
+\RequirePackage{graphicx}
+\graphicspath{{./img/}}
+
+\renewcommand{\intextsep}{\parskip}
+\RequirePackage{float}
+
+\RequirePackage{listings} % for code snippets
+\renewcommand{\lstlistingname}{Texto}
+\RequirePackage{listingsutf8}
+
+\RequirePackage{xcolor}
+\RequirePackage{textcomp}
+
+\definecolor{comment}{RGB}{0,128,0} % dark green
+\definecolor{string}{RGB}{206,112,66}  % red
+\definecolor{keyword}{RGB}{0,0,255} % blue
+\definecolor{background}{RGB}{240,240,240} % blue
+\definecolor{numbers}{RGB}{125,125,125} % grey
+
+\lstdefinestyle{CStyle}{
+	backgroundcolor=\color{background},
+	commentstyle=\color{comment},
+	stringstyle=\color{string},
+	keywordstyle=\color{keyword},
+	basicstyle=\ttfamily\small,
+	numbers=left,
+	xleftmargin=3.325em,
+	framexleftmargin=3.3em,
+	numberstyle=\ttfamily\color{numbers},
+	frame=lines,
+	breaklines=true,
+	breakindent=0em,
+	% prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+	showstringspaces=false,
+	upquote=true,
+	tabsize=4,
+}
+\lstset{
+	style=CStyle,
+	inputencoding=utf8/latin1,
+}
+
+\RequirePackage[
+	top=3.5cm,
+	bottom=3.5cm,
+	left=3cm,
+	right=3cm,
+]{geometry} % unfucks up margins
+
+\RequirePackage[
+	pdfusetitle, % generates pdf metadata
+	hidelinks, % hide those ugly box links
+]{hyperref}
+
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage[nodisplayskipstretch]{setspace} % For amsmath displays spacing
+
+\RequirePackage{dirtytalk}
+
+\RequirePackage[T1]{fontenc} % so FiraMono doesn't do weird things
+\RequirePackage[
+	scale = 0.80,
+	lining,
+]{FiraMono}
+
+\newcommand{\ceil}[1]{{\left\lceil #1 \right\rceil}}
+\newcommand{\floor}[1]{{\left\lfloor #1 \right\rfloor}}
+\newcommand{\abs}[1]{{\left| #1 \right|}}
+
+% \bibliographystyle{IEEEtran} % using IEEE bibliography style
+\RequirePackage[
+	style=ieee,
+	backend=biber,
+]{biblatex}
