@@ -15,7 +15,8 @@ public class BulletController : MonoBehaviour
         Destroy(gameObject, 3f);
     }
 
-    private void OnCollisionEnter(Collision collision) {
+    private void OnCollisionEnter(Collision collision)
+    {
         logger.Log("NPC shot by the player!");
         // Check if the bullet hit an enemy or ally, and update the score accordingly.
         var whois = collision.gameObject.tag;
@@ -30,25 +31,25 @@ public class BulletController : MonoBehaviour
             Destroy(collision.gameObject);
         }
         else if (whois == "Env")
-        { 
-            logger.Log("Enviorment shoot" + whois);
+        {
+            logger.Log("Environment shot");
         }
         // If the bullet hits anything else, log it.
         else
-        {    logger.Log("Unknown object: " + whois);
-        }     
+        {
+            logger.Log("Unknown object: " + whois);
+        }
         // Destroy the bullet and the object it hit.   
         Destroy(gameObject);
     }
 
-    void Scoring(int score) {
+    void Scoring(int score)
+    {
         // Update the global score and print it in the UI.
-        NPCController.POINTS+=score;
-        string Score= "Points: " + (NPCController.POINTS);
+        NPCController.POINTS += score;
+        string Score = "Points: " + (NPCController.POINTS);
         // Find the game object with an UI tag, access to its text component and update the content.
         GameObject.FindWithTag("UI").GetComponent<Text>().text = Score;
         logger.Log("Score updated to: " + NPCController.POINTS);
-
     }
-
 }
