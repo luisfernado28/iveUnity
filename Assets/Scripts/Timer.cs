@@ -11,13 +11,14 @@ public class Timer : MonoBehaviour
     public NPCController npcController;
 
     public Text timerText; // Use Unity's default Text component
-    public float totalTimeInSeconds = 300; // 5 minutes in seconds 
+    public float totalTimeInSeconds; // 1 minute in seconds 
     private float currentTime;
+    private bool ended = false;
 
     void Start()
     {
         logger = FindObjectOfType<Logger>();
-        npcController= FindObjectOfType<NPCController>();
+        npcController = FindObjectOfType<NPCController>();
 
         currentTime = totalTimeInSeconds; // Initialize the timer
         StartCoroutine(WatchoutThing());
@@ -25,26 +26,27 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
+        UpdateTimerDisplay();
         if (currentTime > 0)
         {
             currentTime -= Time.deltaTime; // Decrease the time
-            UpdateTimerDisplay();
         }
-        else
+        else if (!ended)
         {
+            ended = true;
             currentTime = 0; // Ensure it doesn't go negative
-            UpdateTimerDisplay();
             OnTimerEnd();
         }
     }
 
-    IEnumerator WatchoutThing() {
+    IEnumerator WatchoutThing()
+    {
         logger.Log("Watch Out!");
         yield return new WaitForSeconds(0.5f);
         watchout.SetActive(true);
         yield return new WaitForSeconds(2.0f);
         watchout.SetActive(false);
-        logger.Log("End Watch Out!");
+        logger.Log("End Watch Out! Sign");
     }
 
     void UpdateTimerDisplay()
@@ -52,7 +54,7 @@ public class Timer : MonoBehaviour
         int minutes = Mathf.FloorToInt(currentTime / 60); // Calculate minutes
         int seconds = Mathf.FloorToInt(currentTime % 60); // Calculate seconds
 
-        timerText.text = "Time Remaining: "+string.Format("{0:00}:{1:00}", minutes, seconds);
+        timerText.text = "Time Remaining: " + string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
     void OnTimerEnd()

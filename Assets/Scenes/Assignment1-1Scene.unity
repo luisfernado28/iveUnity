@@ -921,7 +921,7 @@ MonoBehaviour:
   watchout: {fileID: 1966652159}
   npcController: {fileID: 628559590}
   timerText: {fileID: 1770890756}
-  totalTimeInSeconds: 300
+  totalTimeInSeconds: 10
 --- !u!1 &1966652159
 GameObject:
   m_ObjectHideFlags: 0
