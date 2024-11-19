@@ -53,7 +53,7 @@ The game only contains one scene, that is structured as follows:
 		\item \textbf{Clock}. A text showing the remaining time. It also holds the \texttt{Timer} script.
 		\item \textbf{Watchout}. The text shown at the beginning of the game.
 	\end{itemize}
-	\item \textbf{Event System}. A. It holds the \texttt{Logger} script.
+	\item \textbf{Event System}. It holds the \texttt{Logger} script.
 	\item \textbf{NPC Spawner}. The game object that spawns enemies and allies. It holds the \texttt{NPCController} script.
 	\item \textbf{Grass}. A grass object to serve as floor and reference point.
 \end{itemize}
@@ -61,12 +61,12 @@ The game only contains one scene, that is structured as follows:
 \subsection{Scripts}
 
 \begin{itemize}
-	\item \textbf{BulletController}.
-	\item \textbf{CameraController}.
-	\item \textbf{GunController}.
-	\item \textbf{Logger}.
-	\item \textbf{NPCController}.
-	\item \textbf{Timer}.
+	\item \textbf{BulletController}. A simple script for each bullet that detects collisions with allies/enemies, destroys them and updates the score.
+	\item \textbf{CameraController}. General player movement.
+	\item \textbf{GunController}. Spawns bullets when needed.
+	\item \textbf{Logger}. General logging to a text file.
+	\item \textbf{NPCController}. Spawns and despawns enemies and allies.
+	\item \textbf{Timer}. Keeps track of remaining time and updates the UI accordingly.
 \end{itemize}
 
 \subsection{Other folders}
