@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BulletController : MonoBehaviour
 {
@@ -49,7 +50,7 @@ public class BulletController : MonoBehaviour
         NPCController.POINTS += score;
         string Score = "Points: " + (NPCController.POINTS);
         // Find the game object with an UI tag, access to its text component and update the content.
-        GameObject.FindWithTag("UI").GetComponent<Text>().text = Score;
+        GameObject.FindWithTag("UI").GetComponent<TextMeshProUGUI>().text = Score;
         logger.Log("Score updated to: " + NPCController.POINTS);
     }
 }

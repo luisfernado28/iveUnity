@@ -10,7 +10,7 @@ public class Timer : MonoBehaviour
     public GameObject watchout;
     public NPCController npcController;
 
-    public Text timerText; // Use Unity's default Text component
+    public TextMeshProUGUI timerText; // Use Unity's default Text component
     public float totalTimeInSeconds; // 1 minute in seconds 
     private float currentTime;
     private bool ended = false;
