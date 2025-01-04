@@ -10,8 +10,7 @@ public class Logger : MonoBehaviour
     void Start()
     {
         // Define the path for the log file
-        // logFilePath = Application.persistentDataPath + "/log.txt";
-        logFilePath = "log.txt";
+        logFilePath = Application.persistentDataPath + "/log.txt";
 
         // Optional: Clear or initialize the log file at the start
         File.WriteAllText(logFilePath, "Log Initialized: " + System.DateTime.Now + "\n");
